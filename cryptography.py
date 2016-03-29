@@ -19,7 +19,7 @@ def encrypt(string, key, method):
     keyNumber = [associations.find(a) for a in key] 
     keyNumber = keyNumber*(len(messageNumber)//len(keyNumber))+ keyNumber[:len(messageNumber)%len(keyNumber)]
     keyNumber = [method*a for a in keyNumber]
-    nxtMessage = [sum(x) for x in zip(messageNumber, KeyNumber)]
+    nxtMessage = [sum(x) for x in zip(messageNumber, keyNumber)]
     nxtMessage = ''.join([associations[x%len(associations)] for x in nxtMessage])
     print(nxtMessage)
     
