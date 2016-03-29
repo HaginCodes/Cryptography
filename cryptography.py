@@ -31,6 +31,7 @@ while method != "q":
         key = input("Key: ")
         encrypt(string, key, 1)
     elif method =="d":
+        
         string = input("Key: ")
         encrypt(message, key, -1)
     else:
