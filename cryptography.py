@@ -14,18 +14,30 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 
 
 
-def encrypt(string, key):
-    messageNumber = [associations.find(a) for a in message]
-    keyNumber = [associations.find(b) for b in key] 
-    newvalarr = []
-    c = 0
-    for x in messageNumber:
-        newvalarr.append(x + keyNumber(c))
-        c += 1
-    return [associations[d] for d in newvalarr]
+def encrypt(string, key, method):
+    messageNumber = [associations.find(a) for a in string]
+    keyNumber = [associations.find(a) for a in key] 
+    keyNumber = keyNumber*(len(messageNumber)//len(keyNumber))+ keyNumber[:len(messageNumber)%len(keynum)]
+    keyNumber = [method*a for a in keyNumber]
+    nxtMessage = [sum(x) for x in zip(messageNumber, KeyNumber)]
+    nxtMessage = ''.join([associations[x%len(associations)] for x in nxtMessage])
+    print(nxtMessage)
     
-question = input("what is the message?")
-questionKey = input("what is the key?")
-print(encrypt(question, questionKey))
+    pressKeys = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+    
+    while pressKeys != "q":
+        if pressKeys == "e":
+            string = input("Message: ")
+            key = input("Key: ")
+            encrypt(string, key, 1)
+        elif method =="d":
+            string = input("Key: ")
+            encrypt(message, key, -1)
+        else:
+            print("Did not understand command, try again.")
+        method = input("Enter e to encrypt, d to decrypt, or q to quit: ");
+        if method == "q":
+            print("Adios")
+            
 
 
