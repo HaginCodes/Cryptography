@@ -23,7 +23,7 @@ def encrypt(string, key, method):
     nxtMessage = ''.join([associations[x%len(associations)] for x in nxtMessage])
     print(nxtMessage)
     
-pressKeys = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+method = input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 while method != "q":
     if method == "e":
