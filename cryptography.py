@@ -31,9 +31,9 @@ while method != "q":
         key = input("Key: ")
         encrypt(string, key, 1)
     elif method =="d":
-        
-        string = input("Key: ")
-        encrypt(message, key, -1)
+        string = input("Message: ")
+        key = input("Key: ")
+        encrypt(string, key, -1)
     else:
         print("Did not understand command, try again.")
     method = input("Enter e to encrypt, d to decrypt, or q to quit: ")
