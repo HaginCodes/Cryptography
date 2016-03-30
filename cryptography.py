@@ -17,7 +17,7 @@ def encrypt(string, key, method):
     keyNumber = keyNumber*(len(messageNumber)//len(keyNumber))+ keyNumber[:len(messageNumber)%len(keyNumber)]
     keyNumber = [method*a for a in keyNumber]
     nxtMessage = [sum(a) for a in zip(messageNumber, keyNumber)]
-    nxtMessage = ''.join([associations[x%len(associations)] for a in nxtMessage])
+    nxtMessage = ''.join([associations[a%len(associations)] for a in nxtMessage])
     print(nxtMessage)
     
 method = input("Enter e to encrypt, d to decrypt, or q to quit: ")
