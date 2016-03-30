@@ -11,16 +11,13 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
-
-
-
 def encrypt(string, key, method):
     messageNumber = [associations.find(a) for a in string]
     keyNumber = [associations.find(a) for a in key] 
     keyNumber = keyNumber*(len(messageNumber)//len(keyNumber))+ keyNumber[:len(messageNumber)%len(keyNumber)]
     keyNumber = [method*a for a in keyNumber]
-    nxtMessage = [sum(x) for x in zip(messageNumber, keyNumber)]
-    nxtMessage = ''.join([associations[x%len(associations)] for x in nxtMessage])
+    nxtMessage = [sum(a) for a in zip(messageNumber, keyNumber)]
+    nxtMessage = ''.join([associations[x%len(associations)] for a in nxtMessage])
     print(nxtMessage)
     
 method = input("Enter e to encrypt, d to decrypt, or q to quit: ")
