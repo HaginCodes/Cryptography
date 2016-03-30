@@ -14,7 +14,7 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 def encrypt(string, key, method):
     messageNumber = [associations.find(a) for a in string]
     keyNumber = [associations.find(a) for a in key] 
-    keyNumber = keyNumber*(len(messageNumber)//len(keyNumber))+ keyNumber[:len(messageNumber)%len(keyNumber)]
+    keyNumber = keyNumber*(len(messageNumber)//len(keyNumber))+keyNumber[:len(messageNumber)%len(keyNumber)]
     keyNumber = [method*a for a in keyNumber]
     nxtMessage = [sum(a) for a in zip(messageNumber, keyNumber)]
     nxtMessage = ''.join([associations[a%len(associations)] for a in nxtMessage])
