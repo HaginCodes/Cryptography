@@ -35,7 +35,7 @@ while method != "q":
         print("Did not understand command, try again.")
     method = input("Enter e to encrypt, d to decrypt, or q to quit: ")
     if method == "q":
-        print("GoodBye!")
+        print("Goodbye!")
         
 
 
